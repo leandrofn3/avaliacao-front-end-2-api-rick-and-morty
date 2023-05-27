@@ -15,12 +15,14 @@ function getcharacters() {
             cards.innerHTML = "";
             data.forEach(character => {
                 cards.innerHTML += `<div class="cards">
-                <img src="${character.image}" >
-                    <div <div class="textCards">
-                        <h2>${character.name}</h2>
-                        <p>${character.status}</p>
-                        <p>${character.species}</p>
-                    </div>
+                        <img src="${character.image}" >
+                        <div class="textCards">
+                            <h2>${character.name}</h2>
+                            <p class="pText">${character.status} - ${character.species}</p>
+                            <p class="pTitulo">last known location:</p>
+                            <p class="pText">${character.location.name}</p>
+                            
+                        </div>
                 </div>`
             });
         })
@@ -32,13 +34,17 @@ function getcharacters() {
         cards.innerHTML = ""
         const nameCharacter = data.filter(character => character.name.toLowerCase() === pesquisar.toLowerCase())
         cards.innerHTML = `<div>
-        <img src="${nameCharacter.image}" >
-            <h2>${nameCharacter.name}</h2>
-            <p>${nameCharacter.status}</p>
-            <p>${nameCharacter.species}</p>
+                        <img src="${nameCharacter.image}" >
+                        <div class="textCards">
+                            <h2>${nameCharacter.name}</h2>
+                            <p class="pText">${nameCharacter.status} - ${nameCharacter.species}</p>
+                            <p class="pTitulo">last known location:</p>
+                            <p class="pText">${nameCharacter.location.name}</p>
+                            
+                        </div>
             </div>`
     }
-    
+
 }
 
 // mudar o formulario tirar e colocar em uma div

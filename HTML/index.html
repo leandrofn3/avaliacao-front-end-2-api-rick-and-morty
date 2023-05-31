@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API - Rick And Morty</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../JS/index.js"></script>
 </head>
+
 <body>
     <main>
         <section class="container">
             <h1>API de Rick and Morty</h1>
-            <form action="" method="get" onsubmit="">
+            <div>
                 <input type="text" id="pesquisar" placeholder="Pesquise">
-                <button id="btn-pesquisar">Vai</button>
-            </form>
+                <button id="btn-pesquisar" onclick="oneCharacters()">Vai</button>
+            </div>
         </section>
         <section>
             <div id="cardsContainer">
-                
-                <!-- <div class="cards">1</div>
-                <div class="cards">2</div>
-                <div class="cards">3</div>
-                <div class="cards">4</div>
-                <div class="cards">5</div>
-                <div class="cards">6</div> -->
             </div>
+        </section>
+        <section class="containerImage">
+            <img src="../images/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png"
+                alt="imagem do rick and Morty saindo do portal">
         </section>
     </main>
     <footer>
         <div class="footerContainer">
-            <p>Characteres: 826</p>
-            <p>Locations: 126</p>
-            <p>Episodes: 51</p>
+            <p class="ptext">Characteres: 826</p>
+            <p class="ptext">Locations: 126</p>
+            <p class="ptext">Episodes: 51</p>
         </div>
-        <div>Desenvolvido por: <span>Leandro Fernandes</span> em 2023</div>
+        <div class="divCreditos">
+            Desenvolvido por: <span>Leandro Fernandes</span> em 2023
+        </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../JS/index.js"></script>
+    <script>
+        function oneCharacters() {
+            const seach = document.getElementById("pesquisar")
+            const filter = seach.value.toLowerCase()
+            let cards = document.getElementsByClassName("cards");
+
+            Array.from(cards).forEach(card => {
+
+                const name = card.getElementsByTagName("h2")[0].textContent.toLowerCase();
+
+                if (name.includes(filter)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            })
+        }
+    </script>
 </body>
+
 </html>

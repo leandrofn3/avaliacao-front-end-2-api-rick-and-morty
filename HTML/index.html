@@ -12,18 +12,26 @@
 </head>
 
 <body>
+    <header>
+        <button onclick="location.reload()"><img src="../images/icon.png" alt=""></button>
+    </header>
     <main>
         <section class="container">
             <h1>API de Rick and Morty</h1>
-            <div>
+            <div class="button1">
                 <input type="text" id="pesquisar" placeholder="Pesquise">
-                <button id="btn-pesquisar" onclick="oneCharacters()">Vai</button>
+                <button id="btn-pesquisar" onclick="oneCharacters()"><img src="../images/icons8-lupa-50.png" alt=""
+                        srcset=""></button>
             </div>
         </section>
         <section>
             <div id="cardsContainer">
             </div>
         </section>
+        <div class="buttonPages">
+            <button onclick="previousPage()"><strong>Previous</strong></button>
+            <button onclick="nextPage()"><strong>Next</strong></button>
+        </div>
         <section class="containerImage">
             <img src="../images/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png"
                 alt="imagem do rick and Morty saindo do portal">

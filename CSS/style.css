@@ -1,40 +1,139 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     size: 62,5%;
-    
 }
 
-.container{
+header img {
+    width: 3rem;
+    height: 3rem;
+}
+
+header button {
+    border: none;
+    background-color: white;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin-top: 50px;
     margin-bottom: 50px;
 }
 
-#pesquisar{
+#pesquisar {
     width: 40rem;
     height: 1.9rem;
     border-radius: 5px;
     padding: 0.5rem;
+    margin-top: 0.5rem;
 }
 
+#btn-pesquisar {
+    display: flex;
+    /* margin: 1px; */
+    /* border: none; */
+    margin-top: 8px;
+    height: 1.8rem;
+    border-radius: 5px;
+}
+
+#btn-pesquisar img {
+    width: 2rem;
+    height: 1.8rem;
+}
+
+.button1 {
+    display: flex;
+}
+
+/* Textos */
 h1 {
     color: #105718;
     font-size: 4.1rem;
 }
 
-#cardsContainer{
+.pText {
+    font-size: 1.1rem;
+}
+
+.pTextStatus {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.statusColor {
+    background-color: #105718;
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    margin-right: 5px;
+}
+
+.stausGreen {
+    background-color: #56CD42;
+}
+
+.statusRed {
+    background-color: #CD4242;
+}
+
+.stausGray {
+    background-color: #BBBBBB;
+}
+
+.pTitulo {
+    color: #848484;
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
+h2 {
+    color: #105718;
+    font-size: 2.5rem;
+}
+
+.textCards {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    width: 500px;
+    height: 250px;
+    padding: 0.3rem;
+}
+
+.ptext {
+    margin-top: 40px;
+    padding: 30px;
+}
+
+.divCreditos {
+    color: #848484;
+    text-align: center;
+    margin-top: 80px;
+}
+
+span {
+    color: white;
+}
+
+#cardsContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
     margin: 5px;
 }
 
@@ -42,54 +141,19 @@ h1 {
     display: flex;
     /* border: black solid 0.1px; */
     display: flex;
-    height: 250px;
+    height: 270px;
     width: 600px;
-    margin-bottom: 5rem;
-}
 
-.textCards{
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem;
-    flex-wrap: wrap;
 }
 
 img {
-    height: 250px;
-    width: 290px;
+    height: 247px;
+    width: 288px;
     padding: 0.1rem;
+    margin-top: 10px;
 }
 
-.pText{
-    font-size: 1.3rem;
-}
-
-.pTextStatus{
-    font-size: 1.3rem;
-    margin-right: 100px;
-}
-
-.circle{
-    background: #105718;
-    border-radius: 100%;
-    width: 10px;
-    height: 10px;
-}
-
-.pTitulo{
-    color: gray;
-    font-size: 1.5rem;
-    margin-top: 0.8rem;
-    margin-bottom: 0.2rem;
-}
-
-h2{
-    color: #105718;
-    font-size: 2.5rem;
-    
-}
-
-.containerImage{
+.containerImage {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -105,24 +169,29 @@ footer {
     height: 250px;
 }
 
-.footerContainer{
+.footerContainer {
     color: #848484;
     display: flex;
     justify-content: center;
 }
 
-.ptext{
-    margin-top: 40px;
-    padding: 30px;
+.buttonPages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
 }
 
-.divCreditos{
-    color: #848484;
-    text-align: center;
-    margin-top: 80px;
-}
-
-span{
+.buttonPages button {
+    padding: 8px;
+    margin: 6px;
+    background: #105718;
     color: white;
+    border-radius: 10%;
+    font-size: 0.9rem;
+    border: none;
 }
 
+.buttonPages button:hover {
+    background-color: #12B0C9;
+}

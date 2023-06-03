@@ -1,41 +1,69 @@
 window.onload = () => {
-    getcharacters()
-
+    getCharacters();
 }
+
+let page = 1;
+let totalPages = 0;
 
 const url = "https://rickandmortyapi.com/api"
 const api = axios.create({
     baseURL: url
 });
 
-function getcharacters() {
-    api.get("/character")
+function getCharacters() {
+    api.get("/character", { params: { page } })
         .then(response => {
             const data = response.data.results
+            totalPages = response.data.info.pages;
+
             let cards = document.getElementById("cardsContainer");
             cards.innerHTML = "";
-            data.forEach(character => {
-                cards.innerHTML += `<div class="cards">
-                        <img src="${character.image}" >
-                        <div class="textCards">
-                            <h2>${character.name}</h2>
-                            <p class="pTextStatus"><p class="circle"></p>${character.status} - ${character.species}</p>
-                            <p class="pTitulo">last known location:</p>
-                            <p class="pText">${character.location.name}</p>
-                        </div>
-                </div>`
+            data.forEach((character, index) => {
+                let statusColorClass = "";
 
-                // if (character.status === "Alive") {
-                //     statusCor = "#56CD42";
-                //     statusTexto = "Vivo";
-                // } else if (character.status === "Dead") {
-                //     statusCor = "#CD4242";
-                //     statusTexto = "Morto";
-                // } else {
-                //     statusCor = "#BBBBBB";
-                //     statusTexto = "Desconhecido";
-                // }
+                if (character.status === "Alive") {
+                    statusColorClass = "stausGreen";
+                } else if (character.status === "Dead") {
+                    statusColorClass = "statusRed";
+                } else {
+                    statusColorClass = "stausGray"
+                }
+
+                const lastEpisodeUrl = character.episode[character.episode.length - 1];
+                api.get(lastEpisodeUrl)
+                    .then(response => {
+                        const lastEpisode = response.data;
+                        const lastEpisodeName = lastEpisode.name;
+
+                        cards.innerHTML += `<div class="cards">
+                            <img src="${character.image}" >
+                            <div class="textCards">
+                                <h2>${character.name}</h2>
+                                <div class="pTextStatus"><div class="statusColor ${statusColorClass}"></div> ${character.status} - ${character.species}</div>
+                                <p class="pTitulo">last known location:</p>
+                                <p class="pText">${character.location.name}</p>
+                                <p class="pTitulo">Last Episode:</p>
+                                <p class="pText">${lastEpisodeName}</p>
+                            </div>
+                        </div>
+                        `;
+                    })
+                    .catch(error => console.log(error));
             });
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
+}
+
+function previousPage() {
+    if (page > 1) {
+        page--;
+        getCharacters();
+    }
+}
+
+function nextPage() {
+    if (page < totalPages) {
+        page++;
+    }
+    getCharacters();
 }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API - Rick And Morty</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../JS/index.js"></script>
 </head>
@@ -20,8 +21,8 @@
             <h1>API de Rick and Morty</h1>
             <div class="button1">
                 <input type="text" id="pesquisar" placeholder="Pesquise">
-                <button id="btn-pesquisar" onclick="oneCharacters()"><img src="../images/icons8-lupa-50.png" alt=""
-                        srcset=""></button>
+                <i class="fa fa-search" id="btn-pesquisar" onclick="oneCharacters()"></i>
+                <!-- <button id="btn-pesquisar" onclick="oneCharacters()"><img src="../images/icons8-lupa-50.png" alt=""></button> -->
             </div>
         </section>
         <section>
@@ -44,7 +45,7 @@
             <p class="ptext">Episodes: 51</p>
         </div>
         <div class="divCreditos">
-            Desenvolvido por: <span>Leandro Fernandes</span> em 2023
+            Desenvolvido por: <span>Leandro Fernandes</span> em 2023.
         </div>
     </footer>
     <script>
